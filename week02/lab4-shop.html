@@ -36,17 +36,13 @@ window.onerror = function(message) {
 // ===== จบตัวช่วย (อย่าลบส่วนบนนี้) =====
 
 // 👇 ลบโค้ดทดลองเก่า แล้ววางตัวอย่างใหม่ใต้บรรทัดนี้ 👇
-const getGrade = (score = 0) => {
-  if (score >= 80) return "A";
-  if (score >= 70) return "B";
-  if (score >= 60) return "C";
-  if (score >= 50) return "D";
-  return "F";
-};
-console.log(getGrade(85));  
-console.log(getGrade(72));  
-console.log(getGrade(44));  
-console.log(getGrade());   
+const products = [
+  { name: "เมาส์",      price: 350,  inStock: true  },
+  { name: "คีย์บอร์ด",   price: 1200, inStock: true  },
+  { name: "จอมอนิเตอร์",  price: 4500, inStock: false },
+  { name: "หูฟัง",      price: 890,  inStock: true  },
+  { name: "ลำโพง",      price: 1500, inStock: false }
+];
 
 </script>
 

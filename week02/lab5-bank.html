@@ -36,17 +36,47 @@ window.onerror = function(message) {
 // ===== จบตัวช่วย (อย่าลบส่วนบนนี้) =====
 
 // 👇 ลบโค้ดทดลองเก่า แล้ววางตัวอย่างใหม่ใต้บรรทัดนี้ 👇
-const getGrade = (score = 0) => {
-  if (score >= 80) return "A";
-  if (score >= 70) return "B";
-  if (score >= 60) return "C";
-  if (score >= 50) return "D";
-  return "F";
-};
-console.log(getGrade(85));  
-console.log(getGrade(72));  
-console.log(getGrade(44));  
-console.log(getGrade());   
+class BankAccount {
+  constructor(owner, balance = 0) {
+    this.owner = owner;
+    this.balance = balance;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+    console.log(`ฝากเงิน ${amount} บาท`);
+  }
+
+  withdraw(amount) {
+    if (amount > this.balance) {
+      console.log("❌ ถอนเงินไม่สำเร็จ: ยอดเงินไม่เพียงพอ");
+      return;
+    }
+    this.balance -= amount;
+    console.log(`ถอนเงิน ${amount} บาท`);
+  }
+
+  show() {
+    console.log(`เจ้าของบัญชี: ${this.owner}`);
+    console.log(`ยอดเงินคงเหลือ: ${this.balance} บาท`);
+  }
+}
+
+class SavingAccount extends BankAccount {
+  addInterest(rate) {
+    const interest = this.balance * (rate / 100);
+    this.balance += interest;
+    console.log(`เพิ่มดอกเบี้ย ${rate}% = ${interest} บาท`);
+  }
+}
+
+// ทดสอบ
+const account = new SavingAccount("สมชาย", 0);
+
+account.deposit(1000);
+account.withdraw(300);
+account.addInterest(2);
+account.show();
 
 </script>
 

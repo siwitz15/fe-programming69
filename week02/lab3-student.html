@@ -36,18 +36,23 @@ window.onerror = function(message) {
 // ===== จบตัวช่วย (อย่าลบส่วนบนนี้) =====
 
 // 👇 ลบโค้ดทดลองเก่า แล้ววางตัวอย่างใหม่ใต้บรรทัดนี้ 👇
-const getGrade = (score = 0) => {
-  if (score >= 80) return "A";
-  if (score >= 70) return "B";
-  if (score >= 60) return "C";
-  if (score >= 50) return "D";
-  return "F";
-};
-console.log(getGrade(85));  
-console.log(getGrade(72));  
-console.log(getGrade(44));  
-console.log(getGrade());   
 
+const student = {
+  name: "ใบบัว เก่งกล้า",
+  studentId: "660123",
+  major: "IT",
+  introduce() {
+    console.log(`ฉันชื่อ ${this.name} รหัส ${this.studentId}`);
+  }
+};
+
+student.introduce();
+
+student.gpa = 3.45;      // เพิ่ม property
+delete student.major;    // ลบ property
+
+const { name, gpa } = student;
+console.log(`${name} ได้เกรดเฉลี่ย ${gpa}`);
 </script>
 
 </body>

@@ -43,6 +43,16 @@ const products = [
   { name: "หูฟัง",      price: 890,  inStock: true  },
   { name: "ลำโพง",      price: 1500, inStock: false }
 ];
+const labels = products.map(p => `${p.name} ราคา ${p.price} บาท`);
+console.log(labels);
+const cheapInStock = products.filter(p => p.inStock && p.price <= 1000);
+console.log(cheapInStock);
+const totalInStock = products
+  .filter(p => p.inStock)
+  .reduce((sum, p) => sum + p.price, 0);
+console.log(totalInStock);
+const newProducts = [...products, { name: "เว็บแคม", price: 990, inStock: true }];
+console.log(products.length, newProducts.length);
 
 </script>
 
